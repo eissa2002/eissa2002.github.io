@@ -1,0 +1,179 @@
+/* ============================================================
+   DCS — Delta Control System
+   Color + Type tokens
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* ---------- Brand ---------- */
+  --brand-teal:        #00B4D8;  /* primary — CTAs, key metrics, focus */
+  --brand-teal-hi:     #22D3EE;  /* hover / highlight */
+  --brand-teal-lo:     #0891B2;  /* press / deep accent */
+  --brand-green:       #2EE6A6;  /* logo gradient top — success/online */
+  --brand-navy:        #0B1F3A;  /* canvas bg — logo wordmark */
+  --brand-navy-deep:   #071428;  /* deepest surface */
+
+  /* Logo gradient — teal → green (use for the mark only, sparingly for hero accents) */
+  --grad-mark: linear-gradient(180deg, #2EE6A6 0%, #00B4D8 55%, #0891B2 100%);
+
+  /* ---------- Surfaces (dark) ---------- */
+  --bg-0:  #071428;   /* app canvas / behind everything */
+  --bg-1:  #0B1F3A;   /* default surface — sidebar, page bg */
+  --bg-2:  #112A4A;   /* raised — cards, table header */
+  --bg-3:  #183458;   /* hover row / input bg */
+  --bg-4:  #224068;   /* pressed / selected */
+
+  /* ---------- Borders / dividers ---------- */
+  --border-1: #1C3558;   /* default hairline */
+  --border-2: #26446E;   /* stronger — input border, card edge */
+  --border-3: #345A8A;   /* focus-adjacent */
+
+  /* ---------- Foreground (text / icon) ---------- */
+  --fg-1: #E8F1FB;   /* primary text */
+  --fg-2: #A9BCD4;   /* secondary text / labels */
+  --fg-3: #6F84A0;   /* tertiary / helper / placeholder */
+  --fg-4: #4A5E7A;   /* disabled / faintest */
+
+  /* ---------- Semantic ---------- */
+  --success:    #2EE6A6;
+  --success-bg: rgba(46, 230, 166, 0.12);
+  --warning:    #F5B544;
+  --warning-bg: rgba(245, 181, 68, 0.14);
+  --danger:     #F45B6B;
+  --danger-bg:  rgba(244, 91, 107, 0.14);
+  --info:       #00B4D8;
+  --info-bg:    rgba(0, 180, 216, 0.14);
+  --neutral:    #6F84A0;
+  --neutral-bg: rgba(111, 132, 160, 0.14);
+
+  /* Status (for lab machines) */
+  --status-online:    var(--success);   /* powered, available */
+  --status-in-use:    var(--brand-teal);/* in active session */
+  --status-idle:      var(--warning);   /* powered, no session */
+  --status-offline:   var(--fg-4);      /* unreachable */
+  --status-error:     var(--danger);    /* alert / fault */
+
+  /* ---------- Type ---------- */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* Size scale (px) — data-dense, Linear/Vercel territory */
+  --fs-display: 32px;   /* dashboard hero metric */
+  --fs-h1:      22px;   /* page title */
+  --fs-h2:      17px;   /* section / card title */
+  --fs-h3:      14px;   /* subsection / table header */
+  --fs-body:    13px;   /* default UI body */
+  --fs-sm:      12px;   /* captions, table cells */
+  --fs-xs:      11px;   /* meta, labels, eyebrows */
+
+  --lh-tight: 1.15;
+  --lh-snug:  1.35;
+  --lh-body:  1.5;
+
+  --fw-regular: 400;
+  --fw-medium:  500;
+  --fw-semibold:600;
+  --fw-bold:    700;
+
+  --tracking-eyebrow: 0.08em;   /* ALL-CAPS eyebrows */
+  --tracking-tight:   -0.01em;  /* display numbers */
+
+  /* ---------- Spacing (4px base) ---------- */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-8: 32px;
+  --sp-10: 40px;
+  --sp-12: 48px;
+  --sp-16: 64px;
+
+  /* ---------- Radii ---------- */
+  --r-1: 4px;    /* pills, tight chips */
+  --r-2: 6px;    /* inputs, buttons */
+  --r-3: 8px;    /* cards */
+  --r-4: 12px;   /* large cards, modals */
+  --r-full: 999px;
+
+  /* ---------- Shadows + glow ---------- */
+  --shadow-1: 0 1px 2px rgba(0,0,0,0.4);
+  --shadow-2: 0 4px 12px rgba(0,0,0,0.35);
+  --shadow-3: 0 12px 32px rgba(0,0,0,0.45);
+  --glow-teal:   0 0 0 3px rgba(0, 180, 216, 0.25);
+  --glow-danger: 0 0 0 3px rgba(244, 91, 107, 0.25);
+
+  /* ---------- Motion ---------- */
+  --dur-1: 120ms;   /* micro — hover */
+  --dur-2: 180ms;   /* default */
+  --dur-3: 260ms;   /* panels, menus */
+  --ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-in:       cubic-bezier(0.4, 0, 1, 1);
+}
+
+/* ============================================================
+   Semantic element defaults
+   ============================================================ */
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--fg-1);
+  background: var(--bg-0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, .h1 {
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--fg-1);
+}
+
+h2, .h2 {
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-snug);
+  color: var(--fg-1);
+}
+
+h3, .h3 {
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-snug);
+  color: var(--fg-1);
+}
+
+.display {
+  font-size: var(--fs-display);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  font-variant-numeric: tabular-nums;
+  color: var(--fg-1);
+}
+
+.eyebrow {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--fg-3);
+}
+
+p { font-size: var(--fs-body); color: var(--fg-2); }
+
+.mono, code, kbd {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  font-variant-ligatures: none;
+}
+
+.num {
+  font-variant-numeric: tabular-nums;
+}
