@@ -610,7 +610,7 @@ const Contact = () => {
           <h2 style={{ marginTop: 2 }}>Open channels</h2>
         </div>
         <span className="spacer" />
-        <span className="status-pill" style={{ width: "90px" }}><span className="dot" style={{ background: '#2EE6A6', width: '6px', marginRight: '6px' }} />{"Reply < 24h"}</span>
+        <span className="status-pill" style={{ width: "90px" }}><span className="dot" style={{ background: '#2EE6A6', width: '6px', textAlign: 'left' }} />{"  Reply < 24h"}</span>
       </div>
       <div className="card-body">
         <ContactForm />
