@@ -26,6 +26,7 @@ const Sidebar = ({ active, onNavigate, projectCount }) => {
         </div>
       </div>
       <div className="section">Navigate</div>
+      <div className="nav-bar">
       {items.map((it) => {
         const Ic = Icons[it.icon];
         return (
@@ -38,6 +39,7 @@ const Sidebar = ({ active, onNavigate, projectCount }) => {
           </button>);
 
       })}
+      </div>
       <div className="foot">
         <div className="avatar">{initials}</div>
         <div>
@@ -583,7 +585,7 @@ const ContactForm = ({ defaultMessage = '' }) => {
           {state === 'error' && '✗ ' + (err || 'failed')}
         </span>
         <button className="btn btn-primary" type="submit" disabled={state === 'sending' || state === 'sent'}>
-          {state === 'sending' ? 'Sending…' : 'Sent'}
+          {state === 'sending' ? 'Sending…' : state === 'sent' ? 'Sent' : 'Send message'}
         </button>
       </div>
     </form>);
@@ -610,7 +612,7 @@ const Contact = () => {
           <h2 style={{ marginTop: 2 }}>Open channels</h2>
         </div>
         <span className="spacer" />
-        <span className="status-pill" style={{ width: "90px" }}><span className="dot" style={{ background: '#2EE6A6', width: '6px', textAlign: 'left' }} />{"  Reply < 24h"}</span>
+        <span className="status-pill" style={{ width: "90px" }}><span className="dot" style={{ background: '#2EE6A6' }} />{"Reply < 24h"}</span>
       </div>
       <div className="card-body">
         <ContactForm />
