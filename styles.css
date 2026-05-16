@@ -1,7 +1,7 @@
 @import url('tokens.css');
 
 * { box-sizing: border-box; }
-html, body { margin:0; padding:0; height:100%; background: var(--bg-0); color: var(--fg-1); font-family: var(--font-sans); font-size: var(--fs-body); overflow-x: hidden; max-width: 100vw; }
+html, body { margin:0; padding:0; height:100%; background: var(--bg-0); color: var(--fg-1); font-family: var(--font-sans); font-size: var(--fs-body); overflow-x: clip; max-width: 100vw; }
 button, input, textarea { font-family: inherit; }
 ::selection { background: rgba(0,180,216,0.35); color: var(--fg-1); }
 
@@ -15,8 +15,8 @@ a:hover { color: #6fe3f5; text-decoration: underline; text-underline-offset: 3px
 ::-webkit-scrollbar-thumb:hover { background: var(--bg-4); }
 
 /* Shell */
-.app { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; max-width: 100vw; overflow-x: hidden; }
-.main { display: flex; flex-direction: column; min-width: 0; overflow-x: hidden; }
+.app { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; max-width: 100vw; overflow-x: clip; }
+.main { display: flex; flex-direction: column; min-width: 0; overflow-x: clip; }
 
 /* Sidebar */
 .sidebar { background: var(--bg-1); border-right: 1px solid var(--border-1); padding: 14px 12px; display:flex; flex-direction:column; gap:2px; position: sticky; top: 0; height: 100vh; }
@@ -271,7 +271,7 @@ a:hover { color: #6fe3f5; text-decoration: underline; text-underline-offset: 3px
 
 /* Mobile — 760px and below */
 @media (max-width: 760px) {
-  html, body { overflow-x: hidden; max-width: 100vw; width: 100%; }
+  html, body { overflow-x: clip; max-width: 100vw; width: 100%; }
   body { word-wrap: break-word; overflow-wrap: anywhere; }
   * { max-width: 100%; }
   .app { grid-template-columns: 1fr; min-width: 0; }
@@ -280,15 +280,27 @@ a:hover { color: #6fe3f5; text-decoration: underline; text-underline-offset: 3px
   img, svg, video { max-width: 100%; }
   a, .kv .v, .contact-row .val, .term .term-body { word-break: break-word; overflow-wrap: anywhere; }
 
-  /* Sidebar → top bar */
-  .sidebar { position: sticky; top: 0; z-index: 10; height: auto; flex-direction: column; gap: 0; padding: 10px 12px; border-right: none; border-bottom: 1px solid var(--border-1); background: var(--bg-1); display: flex; }
-  .sidebar .brand { width: 100%; padding: 4px 0 8px; }
+  /* Sidebar → FIXED top bar (stays visible while scrolling) */
+  .sidebar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    height: auto; flex-direction: column; gap: 0; padding: 8px 12px 6px;
+    border-right: none; border-bottom: 1px solid var(--border-1);
+    background: rgba(11,31,58,0.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    display: flex;
+  }
+  .sidebar .brand { width: 100%; padding: 2px 0 6px; }
+  .sidebar .brand .mark { width: 24px; height: 24px; }
+  .sidebar .brand .name { font-size: 14px; }
+  .sidebar .brand .sub { font-size: 9px; }
   .sidebar .section { display: none; }
   .sidebar .foot { display: none; }
   .sidebar .nav-bar { display: flex; gap: 4px; overflow-x: auto; padding: 4px 0; -webkit-overflow-scrolling: touch; scrollbar-width: none; flex-direction: row; }
   .sidebar .nav-bar::-webkit-scrollbar { display: none; }
-  .nav-item { width: auto; padding: 8px 12px; font-size: 12px; white-space: nowrap; flex-shrink: 0; }
+  .nav-item { width: auto; padding: 7px 10px; font-size: 11.5px; white-space: nowrap; flex-shrink: 0; }
   .nav-item .count { margin-left: 6px; }
+  .nav-item.active::before { width: 2px; }
+  /* push the main content down to clear the fixed sidebar */
+  .main { padding-top: 96px; }
 
   /* Topbar */
   .topbar { padding: 10px 16px; height: auto; flex-wrap: wrap; gap: 8px; }
@@ -402,3 +414,37 @@ a:hover { color: #6fe3f5; text-decoration: underline; text-underline-offset: 3px
 .cf-status.sending { color: var(--brand-teal-hi); }
 .cf-status.sent    { color: var(--success); }
 .cf-status.error   { color: #FF6B6B; }
+
+
+/* ---- MOBILE PERFORMANCE: disable heavy GPU animations ---- */
+@media (max-width: 760px) {
+  /* kill ambient + grid drift on body (was repainting whole viewport) */
+  body::before, body::after { animation: none !important; }
+  /* aurora spin behind main */
+  .main::before { display: none !important; }
+  /* hero gradient border sweep */
+  .hero-id::after { display: none !important; }
+  /* featured card scan line */
+  .featured-card::after { display: none !important; }
+  /* sidebar nav active shimmer */
+  .nav-item.active::after { display: none !important; }
+  /* metric shine (background-clip animation is expensive) */
+  .tile .metric { animation: none !important; background: none !important; -webkit-text-fill-color: var(--fg-1) !important; color: var(--fg-1); }
+  /* tile bobbing */
+  .tile { animation: none !important; }
+  /* live KPI sparkline pulsing */
+  .tile .spark.live span { animation: none !important; }
+  /* hero h1 underline + accent glow */
+  .hero-id h1::after { display: none !important; }
+  .hero-id h1 .accent { animation: none !important; }
+  /* brand mark breathe */
+  .sidebar .brand .mark { animation: none !important; }
+  /* boot overlay simplified */
+  .boot-mark::after { display: none !important; }
+  /* row stagger in fade — too jumpy on mobile */
+  .tbl tbody tr, .tl-row, .stack-card, .stack-card .chips .chip { animation: none !important; opacity: 1 !important; }
+  /* Page transitions reduced */
+  .page { animation: none !important; }
+  /* Marquee — slow down or remove */
+  .marquee-track { animation-duration: 60s; }
+}
