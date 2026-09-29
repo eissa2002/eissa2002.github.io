@@ -37,13 +37,13 @@ window.PortfolioData = {
     {
       id: 'PRJ-002',
       slug: 'legal-ai-suite',
-      name: 'Legal Operations AI Platform',
-      tagline: 'Three production AI agents for a law firm',
+      name: 'Legal & Collections AI Platform',
+      tagline: 'Four AI systems for one client',
       status: 'in-use',
       statusLabel: 'Client · Cairo & Dubai',
-      desc: 'B2B Lead Intelligence: 158K deduplicated B2B leads, 92% reachable by phone, delivered. Client Intake Automation on the official WhatsApp Cloud API: exactly-once replies enforced by a Postgres partial unique index, HMAC-SHA256 PII redaction, append-only audit log, 155 tests. Arabic Legal Document Intelligence: case files to structured reports, with bidi-aware PDF extraction (MVP demoed live).',
-      stack: ['FastAPI', 'PostgreSQL', 'Alembic', 'Redis / arq', 'WhatsApp Cloud API', 'Chatwoot', 'Docker Compose', 'Gemini', 'Groq'],
-      tags: ['Agents', 'LLM', 'Backend'],
+      desc: 'Four AI systems for one client across Cairo and Dubai. Lead intelligence: 158K deduplicated B2B leads, delivered. WhatsApp client intake: exactly-once replies enforced by a Postgres partial unique index, PII redaction, 155 tests. Arabic legal document intelligence: case files to structured reports (MVP demoed live). Realtime voice sales agent: Arabic/English speech-to-speech calls with a supervisor model (in build).',
+      stack: ['FastAPI', 'PostgreSQL', 'OpenAI Realtime', 'Asterisk', 'WhatsApp Cloud API', 'Redis / arq', 'Alembic', 'Docker Compose', 'Gemini', 'Groq'],
+      tags: ['Agents', 'LLM', 'Voice'],
       viz: 'suite',
     },
     {
@@ -85,7 +85,7 @@ window.PortfolioData = {
     {
       from: '2026-07', to: 'Present', current: true,
       role: 'AI Engineer (Contract)',
-      org: 'Law firm · Cairo & Dubai',
+      org: 'Legal & collections client · Cairo & Dubai',
       loc: 'Remote',
       bullets: [
         'Delivered a B2B lead intelligence pipeline: 158K deduplicated B2B leads, 92% reachable by phone, with a schema that stops two reps getting the same firm.',

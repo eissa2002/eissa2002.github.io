@@ -201,22 +201,23 @@ const VizWave = () => {
 
 const VizSuite = () => {
   const agents = [
-  { x: 18, l: 'LEAD INTEL', s: '158K delivered', c: '#2EE6A6' },
-  { x: 132, l: 'INTAKE', s: 'whatsapp api', c: '#22D3EE' },
-  { x: 246, l: 'DOC INTEL', s: 'arabic legal docs', c: '#22D3EE' }];
+  { x: 12, l: 'LEAD INTEL', s: '158K delivered', c: '#2EE6A6' },
+  { x: 98, l: 'INTAKE', s: 'whatsapp api', c: '#22D3EE' },
+  { x: 184, l: 'DOC INTEL', s: 'arabic docs', c: '#22D3EE' },
+  { x: 270, l: 'VOICE', s: 'ar/en realtime', c: '#F5B544' }];
   return (
     <svg width="100%" height="100%" viewBox="0 0 360 110" preserveAspectRatio="none" style={{ display: 'block' }}>
-      <text x="346" y="14" fill="#6F84A0" fontFamily="JetBrains Mono" fontSize="8" textAnchor="end" letterSpacing="0.6">3-AGENT SUITE</text>
+      <text x="346" y="14" fill="#6F84A0" fontFamily="JetBrains Mono" fontSize="8" textAnchor="end" letterSpacing="0.6">4-AGENT PLATFORM</text>
       {agents.map((a, i) =>
       <g key={i}>
-          <rect x={a.x} y="24" width="96" height="36" rx="4" fill="#0B1A2E" stroke={a.c} strokeOpacity="0.7" />
-          <circle cx={a.x + 10} cy="36" r="2.5" fill={a.c} />
-          <text x={a.x + 18} y="39" fill={a.c} fontFamily="JetBrains Mono" fontSize="8" fontWeight="600" letterSpacing="0.5">{a.l}</text>
-          <text x={a.x + 10} y="52" fill="#6F84A0" fontFamily="JetBrains Mono" fontSize="7" letterSpacing="0.4">{a.s.toUpperCase()}</text>
-          <line x1={a.x + 48} y1="60" x2={a.x + 48} y2="78" stroke="#1C3558" strokeDasharray="2 2" />
+          <rect x={a.x} y="24" width="78" height="36" rx="4" fill="#0B1A2E" stroke={a.c} strokeOpacity="0.7" />
+          <circle cx={a.x + 9} cy="36" r="2.5" fill={a.c} />
+          <text x={a.x + 16} y="39" fill={a.c} fontFamily="JetBrains Mono" fontSize="7.5" fontWeight="600" letterSpacing="0.4">{a.l}</text>
+          <text x={a.x + 8} y="52" fill="#6F84A0" fontFamily="JetBrains Mono" fontSize="6.5" letterSpacing="0.3">{a.s.toUpperCase()}</text>
+          <line x1={a.x + 39} y1="60" x2={a.x + 39} y2="78" stroke="#1C3558" strokeDasharray="2 2" />
         </g>
       )}
-      <rect x="18" y="78" width="324" height="18" rx="3" fill="#0B1A2E" stroke="#1C3558" />
+      <rect x="12" y="78" width="336" height="18" rx="3" fill="#0B1A2E" stroke="#1C3558" />
       <text x="180" y="90" fill="#A9BCD4" fontFamily="JetBrains Mono" fontSize="7.5" textAnchor="middle" letterSpacing="0.6">FASTAPI · POSTGRES · AUDIT LOG · PII REDACTION</text>
     </svg>);
 };
