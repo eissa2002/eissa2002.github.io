@@ -9,7 +9,7 @@ window.PortfolioData = {
     github: 'https://github.com/eissa2002',
     linkedin: 'https://www.linkedin.com/in/eissa-islam-775291200/',
     cv: 'assets/Eissa_Islam_CV.pdf',
-    summary: 'AI Engineer with 2+ years building production AI systems: LLM agents, RAG, voice AI, and the backends behind them. I ship end to end, from architecture to deployment, for a university, a law firm in Cairo and Dubai, and my own live SaaS. Published IEEE author (ITC-Egypt 2024).',
+    summary: 'I build AI systems that real people use: agents, RAG, and realtime voice, plus the backends they run on. In 2+ years I have shipped a live SaaS with real users, AI systems in daily use at a university, and a four-system platform for a legal client in Cairo and Dubai. I work in Arabic and English, and I am an IEEE-published author (ITC-Egypt 2024).',
     headline: 'Production AI systems. End-to-end delivery.',
   },
 
@@ -29,7 +29,9 @@ window.PortfolioData = {
       tagline: 'Multi-tenant job search SaaS',
       status: 'in-use',
       statusLabel: 'Live · Open signup',
-      desc: 'Live SaaS with ~20 real users. Pulls jobs from 12 sources, dedupes them, and scores each with a hybrid engine: rules, keyword coverage, and LLM fit. Tailors a CV and cover letter per job. An LLM router with circuit breaker and quota accounting spans 4 providers and 7 models. 412 tests, $0/month infrastructure.',
+      desc: 'Live beta SaaS with ~20 real users. Pulls jobs from 11 sources, including Arabic and English hiring posts on Telegram, dedupes them, and scores each with rules plus LLM fit. Tailors an ATS-ready CV per job in about 30 seconds and alerts on Telegram. An LLM router with circuit breaker and quota accounting spans 4 providers and 7 models. 412 tests, $0/month infrastructure.',
+      url: 'https://jobpilot.qzz.io',
+      urlLabel: 'Live app',
       stack: ['Python', 'FastAPI', 'Next.js', 'SQLAlchemy 2.0', 'PostgreSQL', 'Supabase', 'Playwright', 'Telegram'],
       tags: ['Agents', 'LLM', 'Backend'],
       viz: 'pipeline',
@@ -62,7 +64,7 @@ window.PortfolioData = {
 
   // Full project log
   projects: [
-    { id: 'PRJ-001', name: 'JobPilot AI',            year: 2025, role: 'Solo build', tags: ['Agents','LLM','Backend'],  stack: 'FastAPI · Next.js · PostgreSQL · 4 LLM providers', status: 'in-use' },
+    { id: 'PRJ-001', name: 'JobPilot AI',            year: 2025, role: 'Solo build', tags: ['Agents','LLM','Backend'],  stack: 'FastAPI · Next.js · PostgreSQL · 4 LLM providers', status: 'in-use', url: 'https://jobpilot.qzz.io' },
     { id: 'PRJ-002', name: 'Client Intake Automation (WhatsApp)',  year: 2026, role: 'Contract',   tags: ['Agents','Backend'],        stack: 'FastAPI · PostgreSQL · arq · Meta Cloud API',     status: 'dev' },
     { id: 'PRJ-003', name: 'B2B Lead Intelligence Pipeline', year: 2026, role: 'Contract',   tags: ['Data','Scraping'],         stack: 'Python · SQLite · union-find dedupe',             status: 'in-use' },
     { id: 'PRJ-004', name: 'Arabic Legal Document Intelligence', year: 2026, role: 'Contract',   tags: ['LLM','NLP','Arabic'],      stack: 'FastAPI · Gemini · Groq · Arabic PDF',            status: 'dev' },
@@ -75,10 +77,7 @@ window.PortfolioData = {
     { id: 'PRJ-011', name: 'Quranic Tafsir RAG Assistant', year: 2024, role: 'Solo build', tags: ['RAG','LLM'],               stack: 'ChromaDB · MongoDB · LangChain · HF',             status: 'online' },
     { id: 'PRJ-012', name: 'Web-Grounded RAG Chat Platform', year: 2024, role: 'Engineer',   tags: ['RAG','LLM','Scraping'],    stack: 'MongoDB · ChromaDB · RAG',                        status: 'online' },
     { id: 'PRJ-013', name: 'ScrapeMaster: Dataset Collection Tool', year: 2024, role: 'Solo build', tags: ['Scraping','Tools'],        stack: 'Tkinter · Selenium · BS4',                        status: 'online' },
-    { id: 'PRJ-014', name: 'Fraud Detection & Credit Scoring', year: 2024, role: 'Trainee',    tags: ['ML','Finance'],            stack: 'SMOTE · Ensemble · Scikit-learn',                 status: 'idle' },
-    { id: 'PRJ-015', name: 'Applied MLOps Pipelines (4 projects)', year: 2024, role: 'Intern',     tags: ['MLOps','ML'],              stack: 'MLflow · HuggingFace · Azure AI',                 status: 'idle' },
-    { id: 'PRJ-016', name: 'Parkinsonian Gait Severity Assessment', year: 2024, role: 'Lead',       tags: ['CV','Research','IEEE'],    stack: 'Mediapipe · Keras · Scikit-learn',                status: 'online' },
-    { id: 'PRJ-017', name: 'Prostate Cancer Detection (Deep Learning)', year: 2023, role: 'Solo build', tags: ['CV','Medical'],            stack: 'TensorFlow · Keras · DICOM',                      status: 'idle' },
+    { id: 'PRJ-014', name: 'Parkinsonian Gait Severity Assessment', year: 2024, role: 'Lead',       tags: ['CV','Research','IEEE'],    stack: 'Mediapipe · Keras · Scikit-learn',                status: 'online' },
   ],
 
   experience: [

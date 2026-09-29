@@ -82,7 +82,7 @@ const Topbar = ({ crumbs }) => {
 /* ------- Vizzes (mini diagrams for featured projects) ------- */
 const VizPipeline = () => {
   const stages = [
-  { x: 30, w: 60, label: '12', sub: 'sources', color: '#22D3EE', h: 54 },
+  { x: 30, w: 60, label: '11', sub: 'sources', color: '#22D3EE', h: 54 },
   { x: 110, w: 60, label: 'dedupe', sub: 'fuzzy match', color: '#22D3EE', h: 38 },
   { x: 190, w: 60, label: 'hybrid', sub: 'rules+LLM', color: '#2EE6A6', h: 24 },
   { x: 270, w: 60, label: 'CV', sub: 'tailored', color: '#2EE6A6', h: 14 }];
@@ -262,7 +262,7 @@ const Typer = ({ text, speed = 28, delay = 200 }) => {
 /* ------- Marquee ticker ------- */
 const Ticker = () => {
   const items = [
-  { sym: 'JOBPILOT', v: 'LIVE SAAS', d: '12 job sources' },
+  { sym: 'JOBPILOT', v: 'LIVE SAAS', d: '11 job sources' },
   { sym: 'LEAD INTEL', v: '158K', d: 'delivered to client' },
   { sym: 'INTAKE', v: '155 TESTS', d: 'exactly-once replies' },
   { sym: 'VOICE', v: 'AR / EN', d: 'realtime agent' },
@@ -352,20 +352,11 @@ const useCountUp = (target, dur = 1200) => {
 };
 
 const Kpi = ({ kpi, idx }) => {
-  const heights = [
-  [4, 7, 5, 9, 8, 11, 9, 13, 12, 15, 14, 18],
-  [6, 8, 5, 9, 7, 10, 9, 12, 10, 11, 13, 15],
-  [3, 6, 9, 12, 8, 14, 11, 16, 13, 18, 15, 20],
-  [10, 8, 11, 9, 12, 10, 13, 11, 14, 12, 15, 13]][
-  idx % 4];
   const display = useCountUp(kpi.value, 1100 + idx * 120);
   return (
     <div className="card tile">
       <div className="eyebrow">{kpi.label}</div>
       <div className="metric num">{display}</div>
-      <div className="spark live">
-        {heights.map((h, i) => <span key={i} style={{ height: h + 'px', opacity: 0.4 + i * 0.05 }} />)}
-      </div>
       <div className="sub">{kpi.sub}</div>
     </div>);
 
@@ -400,6 +391,7 @@ const Featured = ({ onNavigate }) => {
               <div className="feat-foot">
                 {p.stack.slice(0, 5).map((s) => <span key={s} className="chip">{s}</span>)}
                 {p.stack.length > 5 && <span className="chip muted">+{p.stack.length - 5}</span>}
+                {p.url && <a className="feat-link" href={p.url} target="_blank" rel="noopener" onClick={(e) => e.stopPropagation()}>{p.urlLabel || 'Visit'} ↗</a>}
               </div>
             </div>
           )}
@@ -453,7 +445,7 @@ const Projects = () => {
             {filtered.map((p) =>
             <tr key={p.id}>
                 <td className="mono muted">{p.id}</td>
-                <td><span style={{ fontWeight: 600 }}>{p.name}</span></td>
+                <td>{p.url ? <a href={p.url} target="_blank" rel="noopener" style={{ fontWeight: 600, color: 'var(--brand-teal-hi)' }}>{p.name} ↗</a> : <span style={{ fontWeight: 600 }}>{p.name}</span>}</td>
                 <td>
                   <span style={{ display: 'inline-flex', gap: 4, flexWrap: 'wrap' }}>
                     {p.tags.map((t) => <span key={t} className="chip teal">{t}</span>)}

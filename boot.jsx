@@ -13,20 +13,20 @@ const Boot = ({ onDone }) => {
   };
 
   const script = [
-    { t: 60,  c: 'dim',  k: 'BIOS',     m: 'EISSA/OS · 2026.5  cold start' },
-    { t: 80,  c: 'info', k: 'CPU',      m: 'detecting cores ……… 8 logical · AVX2 · CUDA capable' },
-    { t: 90,  c: 'info', k: 'MEM',      m: 'allocating runtime …… 16 GiB available' },
-    { t: 110, c: 'ok',   k: 'OK',       m: 'mount /tokens.css → DCS palette loaded' },
-    { t: 90,  c: 'info', k: 'NET',      m: 'eth0 ↑  0.0 ms · resolving portfolio.eissa' },
-    { t: 110, c: 'ok',   k: 'OK',       m: 'kernel modules: react@18 · babel@7 · lucide-icons' },
-    { t: 130, c: 'info', k: 'LLM',      m: 'attaching gemini · groq/llama3 · ollama (local)' },
-    { t: 110, c: 'ok',   k: 'OK',       m: 'vector index online · BGE-m3 · qdrant · chromadb' },
-    { t: 100, c: 'info', k: 'CV',       m: 'spinning up YOLOv8 · OpenCV · Mediapipe' },
-    { t: 110, c: 'info', k: 'AGENT',    m: 'router/retrieval/action graph compiled · 7 layers' },
-    { t: 90,  c: 'warn', k: 'AUDIT',    m: 'sentry hook attached · uptime ⟳ tracker armed' },
-    { t: 90,  c: 'ok',   k: 'OK',       m: 'authenticating operator: eissa  uid=2002  ✔' },
-    { t: 80,  c: 'info', k: 'PROFILE',  m: 'loading 13 projects · 6 roles · 1 IEEE pub' },
-    { t: 80,  c: 'ok',   k: 'READY',    m: 'all systems nominal — handoff to renderer' },
+    { t: 30,  c: 'dim',  k: 'BIOS',     m: 'EISSA/OS · 2026.5  cold start' },
+    { t: 40,  c: 'info', k: 'CPU',      m: 'detecting cores ……… 8 logical · AVX2 · CUDA capable' },
+    { t: 45,  c: 'info', k: 'MEM',      m: 'allocating runtime …… 16 GiB available' },
+    { t: 55, c: 'ok',   k: 'OK',       m: 'mount /tokens.css → DCS palette loaded' },
+    { t: 45,  c: 'info', k: 'NET',      m: 'eth0 ↑  0.0 ms · resolving portfolio.eissa' },
+    { t: 55, c: 'ok',   k: 'OK',       m: 'kernel modules: react@18 · lucide-icons' },
+    { t: 65, c: 'info', k: 'LLM',      m: 'attaching gemini · groq/llama3 · ollama (local)' },
+    { t: 55, c: 'ok',   k: 'OK',       m: 'vector index online · BGE-m3 · qdrant · chromadb' },
+    { t: 50, c: 'info', k: 'CV',       m: 'spinning up YOLOv8 · OpenCV · Mediapipe' },
+    { t: 55, c: 'info', k: 'AGENT',    m: 'agent graph compiled · router · retrieval · action' },
+    { t: 45,  c: 'warn', k: 'AUDIT',    m: 'sentry hook attached · uptime ⟳ tracker armed' },
+    { t: 45,  c: 'ok',   k: 'OK',       m: 'authenticating operator: eissa  uid=2002  ✔' },
+    { t: 40,  c: 'info', k: 'PROFILE',  m: 'loading ' + window.PortfolioData.projects.length + ' projects · ' + window.PortfolioData.experience.length + ' roles · 1 IEEE pub' },
+    { t: 40,  c: 'ok',   k: 'READY',    m: 'all systems nominal — handoff to renderer' },
   ];
 
   React.useEffect(() => {
@@ -47,10 +47,10 @@ const Boot = ({ onDone }) => {
         setLines(arr => [...arr, { ...l, time: ts() }]);
         setPct(Math.round((acc / total) * 100));
       }
-      await new Promise(r => setTimeout(r, 320));
+      await new Promise(r => setTimeout(r, 160));
       if (cancelled) return;
       setHidden(true);
-      setTimeout(() => onDone && onDone(), 620);
+      setTimeout(() => onDone && onDone(), 300);
     })();
 
     return () => { cancelled = true; };
