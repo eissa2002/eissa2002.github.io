@@ -9,7 +9,7 @@ window.PortfolioData = {
     github: 'https://github.com/eissa2002',
     linkedin: 'https://www.linkedin.com/in/eissa-islam-775291200/',
     cv: 'assets/Eissa_Islam_CV.pdf',
-    summary: 'I build AI systems that real people use: agents, RAG, and realtime voice, plus the backends they run on. In 2+ years I have shipped a live SaaS with real users, AI systems in daily use at a university, and a four-system platform for a legal client in Cairo and Dubai. I work in Arabic and English, and I am an IEEE-published author (ITC-Egypt 2024).',
+    summary: 'I build AI systems that real people use: agents, RAG, document AI, and realtime voice, plus the backends they run on. In 2+ years I have shipped a live SaaS with real users, an AI learning platform piloted at a university, and AI systems for clients in Cairo and Dubai. Today I build the AI chat and agents layer of a private, on-premise AI platform at Ricoh Europe. I work in Arabic and English, and I am an IEEE-published author (ITC-Egypt 2024).',
     headline: 'Production AI systems. End-to-end delivery.',
   },
 
@@ -43,7 +43,7 @@ window.PortfolioData = {
       tagline: 'Four AI systems for one client',
       status: 'in-use',
       statusLabel: 'Client · Cairo & Dubai',
-      desc: 'Four AI systems for one client across Cairo and Dubai. Lead intelligence: 158K deduplicated B2B leads, delivered. WhatsApp client intake: exactly-once replies enforced by a Postgres partial unique index, PII redaction, 155 tests. Arabic legal document intelligence: case files to structured reports (MVP demoed live). Realtime voice sales agent: Arabic/English speech-to-speech calls with a supervisor model (in build).',
+      desc: 'Four AI systems for one client across Cairo and Dubai (Jul to Oct 2026). Lead intelligence: 158K deduplicated B2B leads, delivered. WhatsApp client intake: exactly-once replies enforced by a Postgres partial unique index, PII redaction, 155 tests. Arabic legal document intelligence: 500-page case files to structured reports, built and demoed live. Realtime voice sales agent: Arabic/English speech-to-speech calls with a supervisor model, connected to the client\'s phone line with a dashboard.',
       stack: ['FastAPI', 'PostgreSQL', 'OpenAI Realtime', 'Asterisk', 'WhatsApp Cloud API', 'Redis / arq', 'Alembic', 'Docker Compose', 'Gemini', 'Groq'],
       tags: ['Agents', 'LLM', 'Voice'],
       viz: 'suite',
@@ -54,9 +54,9 @@ window.PortfolioData = {
       name: 'RoboMUST',
       tagline: 'Voice-enabled AI learning platform',
       status: 'in-use',
-      statusLabel: 'Live · MUST',
-      desc: 'In production at the university. Students ask in Arabic or English, by voice or text. Answers come from the professor\'s own course files, with the source attached. BGE-M3 puts both languages in one vector space. Whisper large-v3 in, Edge-TTS out, Groq Llama 3.3 70B with Ollama fallback. 14 routers, 3 roles.',
-      stack: ['FastAPI', 'ChromaDB', 'BGE-M3', 'Groq', 'Ollama', 'Whisper', 'Edge-TTS', 'Docling'],
+      statusLabel: 'Pilot · MUST',
+      desc: 'Live as a pilot at the university. Students ask in Arabic or English, by voice or text. Answers come from the professor\'s own course files, with the source attached. Summaries, quizzes, case studies, and personalized study plans. Speech-to-text in, text-to-speech out, with multi-provider LLM fallback. 14 routers, 3 roles.',
+      stack: ['FastAPI', 'RAG', 'Vector search', 'Speech-to-text', 'Text-to-speech', 'LLM fallback', 'Docling'],
       tags: ['RAG', 'LLM', 'Voice'],
       viz: 'wave',
     },
@@ -64,12 +64,13 @@ window.PortfolioData = {
 
   // Full project log
   projects: [
+    { id: 'PRJ-015', name: 'PanelQuote: Engineering Docs to Technical Offers', year: 2026, role: 'Contract', tags: ['CV','LLM','Agents'], stack: 'Vision + OCR models · LLM judge · fallback models · Spec Kit', status: 'in-use' },
     { id: 'PRJ-001', name: 'JobPilot AI',            year: 2025, role: 'Solo build', tags: ['Agents','LLM','Backend'],  stack: 'FastAPI · Next.js · PostgreSQL · 4 LLM providers', status: 'in-use', url: 'https://jobpilot.qzz.io' },
     { id: 'PRJ-002', name: 'Client Intake Automation (WhatsApp)',  year: 2026, role: 'Contract',   tags: ['Agents','Backend'],        stack: 'FastAPI · PostgreSQL · arq · Meta Cloud API',     status: 'dev' },
     { id: 'PRJ-003', name: 'B2B Lead Intelligence Pipeline', year: 2026, role: 'Contract',   tags: ['Data','Scraping'],         stack: 'Python · SQLite · union-find dedupe',             status: 'in-use' },
     { id: 'PRJ-004', name: 'Arabic Legal Document Intelligence', year: 2026, role: 'Contract',   tags: ['LLM','NLP','Arabic'],      stack: 'FastAPI · Gemini · Groq · Arabic PDF',            status: 'dev' },
     { id: 'PRJ-005', name: 'Bilingual Realtime Voice Sales Agent', year: 2026, role: 'Contract',   tags: ['Voice','LLM','Agents'],    stack: 'OpenAI Realtime · Asterisk · FastAPI',            status: 'dev' },
-    { id: 'PRJ-006', name: 'RoboMUST',               year: 2025, role: 'Solo build', tags: ['RAG','LLM','Voice'],       stack: 'FastAPI · ChromaDB · BGE-M3 · Whisper',           status: 'in-use' },
+    { id: 'PRJ-006', name: 'RoboMUST',               year: 2025, role: 'Solo build', tags: ['RAG','LLM','Voice'],       stack: 'FastAPI · RAG · Voice · LLM fallback',           status: 'in-use' },
     { id: 'PRJ-007', name: 'Enterprise Brain',       year: 2025, role: 'Architect',  tags: ['RAG','Agents','LLM'],      stack: 'LangGraph · BGE-m3 · Qdrant · Next.js',           status: 'online' },
     { id: 'PRJ-008', name: 'ShopIntel',              year: 2025, role: 'Lead',       tags: ['LLM','NLP','Scraping'],    stack: 'FastAPI · Selenium · MongoDB · LLMs',             status: 'in-use' },
     { id: 'PRJ-009', name: 'Face Recognition Attendance System', year: 2025, role: 'Contributor',tags: ['CV','Production'],         stack: 'dlib · face_recognition · FastAPI',               status: 'in-use' },
@@ -82,15 +83,37 @@ window.PortfolioData = {
 
   experience: [
     {
-      from: '2026-07', to: 'Present', current: true,
-      role: 'AI Engineer (Contract)',
+      from: '2026-11', to: 'Present', current: true,
+      role: 'Part-Time Full-Stack AI Engineer',
+      org: 'Ricoh Europe (via MEAPAL)',
+      loc: 'Remote',
+      bullets: [
+        "Private, on-premise generative AI platform for regulated industries, where customer data never leaves the customer's own hardware.",
+        'Building the AI layer: chat with grounded, cited answers and AI agents with secure tool use (MCP), plus sign-in and access control.',
+        'Spec-driven, test-first development with AI coding agents (GitHub Spec Kit), in Python (FastAPI) and React + TypeScript, under strict CI quality gates.',
+      ],
+    },
+    {
+      from: '2026-10', to: 'Present', current: true,
+      role: 'AI Engineer (Freelance)',
+      org: 'Electrical-panels client',
+      loc: 'Egypt',
+      bullets: [
+        'Built PanelQuote, a multi-model AI system that turns engineering files (CAD drawings, PDFs, single-line diagrams, breaker lists) into technical offers.',
+        'Several vision and OCR models with layered checks and a final LLM judge that flags wrong output; fallback models take over when one fails.',
+        'Built spec-driven with GitHub Spec Kit; used on 25+ real customer cases so far.',
+      ],
+    },
+    {
+      from: '2026-07', to: '2026-10',
+      role: 'AI Engineer (Freelance)',
       org: 'Legal & collections client · Cairo & Dubai',
       loc: 'Remote',
       bullets: [
         'Delivered a B2B lead intelligence pipeline: 158K deduplicated B2B leads, 92% reachable by phone, with a schema that stops two reps getting the same firm.',
-        'Building a WhatsApp client intake automation on the official Cloud API: exactly-once replies, PII redaction, audit log, 155 tests.',
-        'Built an Arabic legal document intelligence MVP that turns case files into structured reports; demoed live to the client.',
-        'Building a bilingual (Arabic/English) realtime voice sales agent on OpenAI Realtime with a custom Asterisk telephony lab.',
+        'Built a WhatsApp client intake agent on the official Cloud API: exactly-once replies, PII redaction, audit log, 155 tests.',
+        'Built an Arabic legal document intelligence agent that turns 500-page case files into structured reports; demoed live to the client.',
+        'Built a bilingual (Arabic/English) realtime voice sales agent on OpenAI Realtime with an Asterisk telephony bridge and a dashboard.',
       ],
     },
     {
@@ -99,11 +122,10 @@ window.PortfolioData = {
       org: 'Misr University for Science & Technology',
       loc: 'Giza, Egypt',
       bullets: [
-        'Spearheading university-wide smart infrastructure — 3 production AI systems in active campus use.',
-        'Built RoboMUST, a voice-enabled AI learning platform in production: cross-lingual RAG over course files, quiz generation, summarization.',
-        'Developed ShopIntel — LLM shopping assistant with multi-platform scraping and personalized planning.',
-        'Deployed campus-wide facial recognition attendance covering multiple departments.',
-        'Built YOLOv8 garbage classification system deployed at physical sorting stations.',
+        "Built RoboMUST, the university's voice and RAG learning platform, now running as a live pilot.",
+        'Developed ShopIntel, an LLM shopping assistant with live multi-platform scraping and personalized planning.',
+        'Deployed a facial-recognition attendance system across multiple departments.',
+        'Built a YOLOv8 waste-classification system for smart recycling.',
       ],
     },
     {
@@ -112,9 +134,9 @@ window.PortfolioData = {
       org: 'AiTech',
       loc: 'Egypt',
       bullets: [
-        'Architected an intelligent chat system using web scraping + MongoDB + ChromaDB + RAG.',
+        'Built a client chatbot system that combines a fine-tuned model with RAG (MongoDB + ChromaDB).',
         'Built a Quranic RAG chatbot grounded in classical tafsir with a dual-vector pipeline.',
-        'Developed ScrapeMaster — a Tkinter desktop tool for YouTube/web image dataset collection.',
+        'Built scrapers for YouTube and other sources (including ScrapeMaster) to collect training data for fine-tuning.',
       ],
     },
     {
@@ -168,13 +190,13 @@ window.PortfolioData = {
   },
 
   stack: [
-    { group: 'LLM & Agents',      items: ['LangChain', 'LangGraph', 'OpenAI Realtime', 'Gemini API', 'Groq / Llama 3', 'Ollama', 'LLM routing & fallback', 'Prompt Eng'] },
+    { group: 'LLM & Agents',      items: ['LangChain', 'LangGraph', 'OpenAI Realtime', 'Gemini API', 'Groq / Llama 3', 'Ollama', 'LLM routing & fallback', 'MCP', 'Tool calling', 'LLM-as-judge', 'Spec Kit', 'Claude Code', 'Prompt Eng'] },
     { group: 'RAG & Vector DBs',  items: ['BGE-m3', 'Re-ranking', 'Semantic Search', 'ChromaDB', 'Qdrant', 'Milvus', 'PGVector', 'Docling'] },
     { group: 'Voice & Messaging', items: ['Whisper', 'Edge-TTS', 'Asterisk', 'WhatsApp Cloud API', 'Chatwoot', 'Telegram Bot API'] },
-    { group: 'Backend & APIs',    items: ['FastAPI', 'SQLAlchemy 2.0 async', 'asyncpg', 'Alembic', 'Redis / arq', 'Celery', 'REST', 'SSE'] },
+    { group: 'Backend & APIs',    items: ['FastAPI', 'SQLAlchemy 2.0 async', 'asyncpg', 'Alembic', 'Redis / arq', 'Celery', 'REST', 'SSE', 'Pydantic', 'Keycloak / OIDC', 'RBAC'] },
     { group: 'Languages & DBs',   items: ['Python', 'TypeScript', 'SQL', 'PostgreSQL', 'Supabase', 'MongoDB', 'SQLite'] },
     { group: 'Frontend',          items: ['Next.js', 'React', 'Browser extensions (MV3)', 'Streamlit'] },
-    { group: 'MLOps & Cloud',     items: ['Docker Compose', 'GitHub Actions', 'MLflow', 'Azure AI', 'AWS', 'Oracle Cloud (ARM)', 'Sentry', 'systemd'] },
+    { group: 'MLOps & Cloud',     items: ['Docker Compose', 'GitHub Actions', 'MLflow', 'Azure AI', 'AWS', 'Oracle Cloud (ARM)', 'Kubernetes', 'Helm', 'OpenTelemetry', 'pytest / TDD', 'Sentry', 'systemd'] },
     { group: 'ML / DL & CV',      items: ['PyTorch', 'TensorFlow', 'Scikit-learn', 'HF Transformers', 'YOLOv8', 'OpenCV', 'Mediapipe'] },
     { group: 'Scraping & Auto',   items: ['Playwright', 'Scrapling', 'Selenium', 'BeautifulSoup', 'httpx', 'n8n', 'APScheduler'] },
   ],
